@@ -1,0 +1,58 @@
+{
+  "name": "puppet-pg_backup",
+  "version": "0.1.0",
+  "author": "puppetcommunity",
+  "summary": "Simple module to configure a postgresql database backup",
+  "license": "MIT",
+  "source": "https://github.com/puppet-community/puppet-pg_backup",
+  "project_page": "https://github.com/puppet-community/puppet-pg_backup",
+  "issues_url": "https://github.com/puppet-community/puppet-pg_backup/issues",
+  "tags": [ "postgres", "backup", "backups", "postgreSQL" ],
+  "dependencies": [
+    {
+      "name": "puppetlabs-stdlib",
+      "version_requirement": ">= 1.0.0"
+    }
+  ],
+  "operatingsystem_support": [
+    {
+      "operatingsystem": "RedHat",
+      "operatingsystemrelease": [
+        "5",
+        "6",
+        "7"
+      ]
+    },
+    {
+      "operatingsystem": "CentOS",
+      "operatingsystemrelease": [
+        "5",
+        "6",
+        "7"
+      ]
+    },
+    {
+      "operatingsystem": "Ubuntu",
+      "operatingsystemrelease": [
+        "12.04",
+        "14.04"
+      ]
+    },
+    {
+      "operatingsystem": "Debian",
+      "operatingsystemrelease": [
+        "7"
+      ]
+    }
+  ],
+  "requirements": [
+    {
+      "name": "pe",
+      "version_requirement": "3.x"
+    },
+    {
+      "name": "puppet",
+      "version_requirement": ">=3.4.0 <4.0.0"
+    }
+  ]
+}
