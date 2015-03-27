@@ -1,6 +1,6 @@
 {
   "name": "puppet-pg_backup",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "author": "puppetcommunity",
   "summary": "Simple module to configure a postgresql database backup",
   "license": "MIT",
