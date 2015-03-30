@@ -30,19 +30,19 @@ describe 'pg_backup' do
               'owner'  => 'root',
               'group'  => 'root',
               'mode'   => '0755',
-            })
+            }).that_requires('File[/opt/pg_backup]')
             should contain_file('/opt/pg_backup/pg_backup.sh').with({
               'ensure' => 'present',
               'owner'  => 'root',
               'group'  => 'root',
               'mode'   => '0755',
-            })
+            }).that_requires('File[/opt/pg_backup]')
             should contain_file('/opt/pg_backup/pg_basebackup.sh').with({
               'ensure' => 'present',
               'owner'  => 'root',
               'group'  => 'root',
               'mode'   => '0755',
-            })
+            }).that_requires('File[/opt/pg_backup]')
           end
           it 'should manage the postgres backup scripts config file' do
             should contain_file('/opt/pg_backup/pg_backup.config').with({
@@ -71,21 +71,11 @@ describe 'pg_backup' do
               'user'     => 'postgres',
               'hour'     => '20',
               'minute'   => '0',
-            })
+            }) 
+            .that_requires('File[/opt/pg_backup/pg_backup.config]')
           end
         end
       end
     end
   end
-
-#  context 'unsupported operating system' do
-#    describe 'pg_backup class without any parameters on Solaris/Nexenta' do
-#      let(:facts) {{
-#        :osfamily        => 'Solaris',
-#        :operatingsystem => 'Nexenta',
-#      }}
-#
-#      it { expect { is_expected.to contain_class('pg_backup') }.to raise_error(Puppet::Error, /Nexenta not supported/) }
-#    end
-#  end
 end

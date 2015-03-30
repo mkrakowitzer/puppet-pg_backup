@@ -18,6 +18,11 @@ class pg_backup::install(
     owner  => 'root',
     group  => 'root',
     mode   => '0755',
+    before => [
+      File["${install_dir}/pg_backup_rotated.sh"],
+      File["${install_dir}/pg_backup.sh"],
+      File["${install_dir}/pg_basebackup.sh"],
+    ]
   }
 
   file { "${install_dir}/pg_backup_rotated.sh":

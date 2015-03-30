@@ -53,6 +53,7 @@ class pg_backup::config (
     monthday => $monthday,
     weekday  => $weekday,
     special  => $special_real,
+    require  => File["${install_dir}/pg_backup.config"]
   }
 
 }
