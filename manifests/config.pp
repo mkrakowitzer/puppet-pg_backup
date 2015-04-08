@@ -19,15 +19,22 @@ class pg_backup::config (
   $days_to_keep          = $pg_backup::days_to_keep,
   $weeks_to_keep         = $pg_backup::weeks_to_keep,
 
-  # Backup date
-  $hour     = $pg_backup::hour,
-  $minute   = $pg_backup::minute,
-  $month    = $pg_backup::month,
-  $monthday = $pg_backup::monthday,
-  $weekday  = $pg_backup::weekday,
-  $special  = $pg_backup::special,
-
 ) {
+  if $pg_backup::special == 'UNSET' {
+    $hour     = $pg_backup::hour
+    $minute   = $pg_backup::minute
+    $month    = $pg_backup::month
+    $monthday = $pg_backup::monthday
+    $weekday  = $pg_backup::weekday
+    $special  = undef
+  } else {
+    $hour     = undef
+    $minute   = undef
+    $month    = undef
+    $monthday = undef
+    $weekday  = undef
+    $special  = $pg_backup::special
+  }
 
   file { "${install_dir}/pg_backup.config":
     ensure  => $ensure,

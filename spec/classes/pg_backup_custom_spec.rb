@@ -147,7 +147,7 @@ describe 'pg_backup' do
             should contain_cron('Scheduled postgres backup').with({
               'hour'     => '1',
               'minute'   => '10',
-              'month'    =>'7',
+              'month'    => '7',
               'monthday' => '28',
               'weekday'  => '3',
               'special'  => nil,
@@ -161,6 +161,11 @@ describe 'pg_backup' do
           }}
           it do
             should contain_cron('Scheduled postgres backup').with({
+              'hour'     => nil,
+              'minute'   => nil,
+              'month'    => nil,
+              'monthday' => nil,
+              'weekday'  => nil,
               'special' => 'daily',
             })
           end
